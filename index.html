@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Sacred Harvasters International School Home Page. Explore our academic programs, extracurricular activities, and community events. Join us in fostering a nurturing mind environment and cultivating excellence for holistic education and personal growth.">
+    <title>Sacred Harvasters International School Home Page</title>
+    <meta name="author" content="Vjutech LTD"/>
+    <meta name="robots" content="index, follow">
+
+    <!-------------------STYLES--------------------->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/form-base.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    <link rel="stylesheet" href="styles/large.css">
+    
+
+    <!--------------------SCRIPTS----------------------->
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/login.js" defer></script>
+    <script src="scripts/dialogbox.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+  
+    <!--Open Graph-->
+    <meta property="og:title" content="Sacred Harvasters Internation School Home Page">
+    <meta property="og:description" content="Welcome to the Sacred Arvasters International School Home Page. Explore our academic programs, extracurricular activities, and community events. Join us in fostering a nurturing mind environment and cultivating excellence for holistic education and personal growth.">
+    <meta property="og:image" content="images/harvester.svg">
+    <meta property="og:url" content="https://Chimezie-homepage.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sacred Harvasters International School">
+
+    <!--------------FAVICON LINK-------------->
+    <link rel="icon" href="images/harvester.svg" type="image/x-icon" alt="Favicon">
+</head>
+<body>
+    <header>
+        <img src="images/harvester.svg" alt="Logo" loading="lazy">
+        <span>Sacred Harvasters International School</span>
+
+        <!-----------------HAMBURGER---------------->
+        <button aria-label="hamburger button" class="hamburger" id="ham-btn"></button>
+
+        <!---------------NAVIGATION ------------------>
+        <nav id="nav-links" class="nav-links">
+        <ul>
+            <li><a class="home-page" href="admin.html">Home</a></li>
+            <li><a class="admin-dashboard-page" href="#">Admin</a></li>
+            <li><a class="staff-dashboard-page" href="#">Staff</a></li>
+        </ul>
+        </nav>
+
+    </header>
+    <main>
+        <h1>Home</h1>
+        <section class="hero-section">
+            <a href="#" class="hero-btn hero-signin" aria-label="Sign In">SignIn</a>
+            <a href="form.html" class="hero-signup" aria-label="Sign Up">SignUp</a>
+            <img class="hero-img" src="images/hero-image.webp" alt="Sacred Harvesters Int'l School Hero Image" loading="lazy">
+            <h2 class="hero-text">Sacred Harvesters Int'L School</h2>
+        </section>
+        <!-- DASHBOARD PATHWAY DIALOG BOX SECTION -->
+        <section>
+            <dialog class="dialog-box" id="dialog-box" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
+                <aside>
+                    <h1>Dashboard Pathways</h1>
+                    <button class="close-dialog" id="close-dialog" aria-label="Close Dialog Box">X</button>
+                </aside>
+                <ul>
+                    <li><a id="admin-dashboard" href="admin.html">Admin Dashboard</a></li>
+                    <li><a id="staff-dashboard" href="#">Staff Dashboard</a></li>
+                </ul>
+            </dialog>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h3>Contact Information</h3>
+            <p>6 Holy Family</p>
+            <p>Ogwashi-uku 320107, Anioch LGA</p>
+            <p>Delta State, Nigeria.</p>
+            <p>victornwanodi@gmail.com</p>
+            <p>(234) 8073-390967</p>
+        </div>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/chimezie-nwanodi-4456aa27a/" target="blank" aria-label="LinkedIn Icon"><img src="images/linkedin.svg" alt="LinkedIn Icon" width="16" height="16" loading="lazy">
+            </a>
+            <a href="https://github.com/" target="blank" aria-label="Github Icon"><img src="images/github.svg" alt="Github Icon" width="16" height="16" loading="lazy">
+            </a>
+            <a href="" target="blank" aria-label="Twitter Icon"><img src="images/twitter-x.svg" alt="Twiter Icon" width="16" height="16" loading="lazy">
+            </a>
+        </div>
+        <div>
+            <h3>WDD231 Final Project</h3>
+            <p>Chimezie Victor Stephen</p>
+            <p>
+                &copy; 2025 | VjuTech Shopping | Nigeria
+            </p>
+            <p>
+                &copy; My Video URL| <a href="https://youtu.be/mcZpLzIA_eI">https://youtu.be/mcZpLzIA_eI</a>
+            </p>
+            <p id="last-modification"></p>
+        </div>
+    </footer>
+</body>
+</html>
