@@ -103,6 +103,7 @@ a:hover {
 /************* MAIN ****************/
 h1 {
     margin: 0 10px;
+    color: #222;
 }
 
 li .home-page { /****Way finding ****/

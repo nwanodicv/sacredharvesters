@@ -21,7 +21,7 @@ if (!staff) {
 document.querySelector("#staffInfo").innerHTML = `
   <h2>Welcome, ${staff.firstName} ${staff.lastName}</h2>
   <p><strong>Email:</strong> ${staff.email}</p>
-  <p><strong>Subjects:</strong> ${staff.department}</p>
+  <p><strong>Subjects:</strong> ${staff.subjects}</p>
 `;
 
 const attendanceBody = document.querySelector("#attendanceHistory");
@@ -53,7 +53,7 @@ signInBtn.addEventListener("click", () => {
   renderAttendance();
 });
 
-
+// UPLOAD SECTION
 const uploadBtn = document.querySelector("#uploadLesson");
 const fileInput = document.querySelector("#lessonFile");
 const lessonList = document.querySelector("#lessonList");

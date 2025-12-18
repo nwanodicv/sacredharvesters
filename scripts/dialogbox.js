@@ -23,7 +23,7 @@ adminDialogBoxSignIn.addEventListener("click", () => {
 
   dialogAdmin.innerHTML = `
     <form id="staffLoginForm">
-      <h3>Staff Sign-In</h3>
+      <h3>Admin Sign-In</h3>
 
       <label>Email
         <input type="email" id="loginEmail" required>

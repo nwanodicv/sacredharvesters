@@ -103,6 +103,24 @@ a:hover {
 /************* MAIN ****************/
 h1 {
     margin: 0 10px;
+    color: #222;
+}
+
+h2 {
+    margin: 10px 10px;
+    color:#222;
+}
+
+p {
+    margin: 10px 10px;
+}
+
+section input[type="file"] {
+    background-color: #faefef;
+    border: 1px solid #f8baba;
+    border-radius: 0.2rem;
+    margin: 10px 10px;
+    cursor: pointer;
 }
 
 li .staff-dashboard-page { /****Way finding ****/
@@ -178,89 +196,52 @@ li .staff-dashboard-page { /****Way finding ****/
 
 }
 
-/***************** DIALOG SECTION **********/
-dialog, alert {
-  width: 400px;
-  height: 200px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
-  padding: 20px;
-}
-::backdrop {
-  background-color: rgb(0 0 0 / 50%);
-}
-
-dialog > aside {
-    display: block;
-    margin-bottom: 10px;
-}
-
-dialog h1 {
-    font-size: 1.5rem;
-    color: #800000;
-    margin: 0;
-    padding: 0;
-}
-
-dialog h3 {
-    color: #800000;
-}
-
-dialog > aside {
-    display: grid;
-    grid-template-columns: auto 44px;
-    column-gap: 10px;
-    margin-left: 10px;
-}
-
-dialog button {
-    width: auto;
-    height: 30px;
-    border: 0.1px solid #800000;
-    border-radius: 0.2rem;
-    margin-bottom: 10px;
-    background-color: #faefef;
-    cursor: pointer;
-}
-
-dialog button:hover {
-    background-color: #f8d0d0;
-}
-
-dialog li {
-    list-style: none;
-}
-
-dialog a {
-    display: block;
-    width: fit-content;
-    border: 0.1px solid #800000;
-    border-radius: 0.2rem;
-    margin: 10px 35px;
-    text-decoration: none;
-    color: #222;
-    background-color: #faefef;
-    padding: 8px;
-}
-
-dialog a:hover {
-    background-color: #f8d0d0;
-}
-    
 /***************** Attendance Section *************/
 .attendance-table {
   width: 100%;
   border-collapse: collapse;
+  margin: 0 10px;
 }
 
 .attendance-table th,
 .attendance-table td {
   padding: 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid #f8baba;
+  margin: 0 10px;
 }
 
+.checkin-btn, .checkout-btn {
+    width: auto;
+    height: 30px;
+    background-color: #faefef;
+    border: 1px solid #f8baba;
+    border-radius: 0.2rem;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #f8baba;
+}
+
+.checkin-btn:hover {
+    background-color: #f8baba;
+}
+
+/***************** UPLAOD SECTION *************/
+.upload-btn {
+    width: auto;
+    height: 30px;
+    background-color: #faefef;
+    border: 1px solid #f8baba;
+    border-radius: 0.2rem;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #f8baba;
+}
 /***************** FOOTER *************/
 footer {
     display: grid;
