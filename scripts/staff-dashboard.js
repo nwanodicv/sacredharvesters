@@ -24,34 +24,56 @@ document.querySelector("#staffInfo").innerHTML = `
   <p><strong>Subjects:</strong> ${staff.subjects}</p>
 `;
 
+
+
 const attendanceBody = document.querySelector("#attendanceHistory");
-const signInBtn = document.querySelector("#signInBtn");
-
-function renderAttendance() {
+const viewHistoryBtn = document.querySelector('#view-history-btn');
+viewHistoryBtn.addEventListener("click", () => {
   attendanceBody.innerHTML = "";
-
+// If admin has NOT checked staff in
+  if (!staff.attendance || staff.attendance.length === 0) {
+    attendanceBody.innerHTML = `<tr><td colspan="3">No attendance record</td></tr>`;
+    return;
+  }
+ // Show ONLY this staff’s attendance
   staff.attendance.forEach(a => {
     const row = document.createElement("tr");
     row.innerHTML = `
+      <td>${a.type}</td>
       <td>${a.date}</td>
       <td>${a.time}</td>
     `;
     attendanceBody.appendChild(row);
   });
-}
-
-signInBtn.addEventListener("click", () => {
-  const now = new Date();
-
-  staff.attendance.push({
-    type: "Sign In",
-    date: now.toLocaleDateString(),
-    time: now.toLocaleTimeString()
-  });
-
-  localStorage.setItem("myStaff", JSON.stringify(staffList));
-  renderAttendance();
 });
+
+//const signInBtn = document.querySelector("#signInBtn");
+//
+//function renderAttendance() {
+//  attendanceBody.innerHTML = "";
+//
+//  staff.attendance.forEach(a => {
+//    const row = document.createElement("tr");
+//    row.innerHTML = `
+//      <td>${a.date}</td>
+//      <td>${a.time}</td>
+//    `;
+//    attendanceBody.appendChild(row);
+//  });
+//}
+//
+//signInBtn.addEventListener("click", () => {
+//  const now = new Date();
+//
+//  staff.attendance.push({
+//    type: "Checked In",
+//    date: now.toLocaleDateString(),
+//    time: now.toLocaleTimeString()
+//  });
+//
+//  localStorage.setItem("myStaff", JSON.stringify(staffList));
+//  renderAttendance();
+//});
 
 // UPLOAD SECTION
 const uploadBtn = document.querySelector("#uploadLesson");

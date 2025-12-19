@@ -102,7 +102,7 @@ a:hover {
 
 /************* MAIN ****************/
 h1 {
-    margin: 0 10px;
+    margin: 10px 10px;
     color: #222;
 }
 
@@ -113,6 +113,7 @@ h2 {
 
 p {
     margin: 10px 10px;
+    color:#222;
 }
 
 section input[type="file"] {
@@ -208,6 +209,7 @@ li .staff-dashboard-page { /****Way finding ****/
   padding: 0.6rem;
   border: 1px solid #f8baba;
   margin: 0 10px;
+  column-gap: 20px;
 }
 
 .checkin-btn, .checkout-btn {

@@ -55,10 +55,21 @@
     <main>
         <h1>Admin</h1>
         <!-- STAFF INFORMATION SECTION -->
-         <section id="adminInfo" class="staff-info"></section>
+        <section id="adminInfo" class="staff-info"></section>
 
+        <section class="staff-selector">
+          <label for="staffSelect"><strong>Select Staff:</strong></label>
+          <select id="staffSelect"></select>
+        </section>
+        
         <section class="attendance-section">
           <h2>Attendance History</h2>
+          
+          <div class="attendance-filter">
+            <label for="attendanceDate"><strong>Select Date:</strong></label>
+            <input type="date" id="attendanceDate">
+          </div>
+
           <table class="attendance-table">
             <thead>
               <tr>
@@ -71,6 +82,11 @@
           </table>
           <button id="checkInBtn">Check In Today</button>
           <button id="checkOutBtn">Check Logout Today</button>
+        </section>
+
+        <section class="lesson-admin">
+          <h2>Lesson Notes</h2>
+          <ul id="adminLessonList"></ul>
         </section>
     </main>
     <footer>
