@@ -1,7 +1,11 @@
 const staffList = JSON.parse(localStorage.getItem("myStaff")) || [];
 
-const adminId = Number(localStorage.getItem("currentStaff"));
-const adminList = JSON.parse(localStorage.getItem("myAdmin")) || [];
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!user || user.role !== "admin") {
+  alert("Access denied");
+  window.location.href = "index.html";
+}
 
 //console.log(adminList);
 
@@ -10,7 +14,6 @@ const adminList = JSON.parse(localStorage.getItem("myAdmin")) || [];
 //  window.location.href = "index.html";
 //}
 
-const admin = adminList.find(ad => ad.id === adminId);
 
 //if (!admin) {
 //  alert("Session expired. Please login again.");
@@ -19,11 +22,11 @@ const admin = adminList.find(ad => ad.id === adminId);
 //}
 
 
-// DISPLAY STAFF INFO
+// DISPLAY ADMIN INFO
+
 document.querySelector("#adminInfo").innerHTML = `
-  <h2>Welcome, ${admin.firstName} ${admin.lastName}</h2>
-  <p><strong>Email:</strong> ${admin.email}</p>
-  <p><strong>Subjects:</strong> ${admin.department}</p>
+  <h2>Welcome, Admin</h2>
+  <p><strong>Email:</strong> sacredharvester@gmail.com</p>
 `;
 
 // POPULATE TABLE 
@@ -60,9 +63,29 @@ function renderAttendance(staff) {
   });
 }
 
+// ATTENDANCE BODY
+const attendanceBody = document.querySelector("#attendanceHistory");
+
+function renderSelectedStaffAttendance() {
+  attendanceBody.innerHTML = "";
+
+  if (!selectedStaffId) return;
+
+  const staff = staffList.find(s => s.id === selectedStaffId);
+  if (!staff || !staff.attendance) return;
+
+  staff.attendance.forEach(a => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${a.type}</td>
+      <td>${a.date}</td>
+      <td>${a.time}</td>
+    `;
+    attendanceBody.appendChild(row);
+  });
+}
 
 // STAFF CHECK-IN SECTION
-const attendanceBody = document.querySelector("#attendanceHistory");
 const checkInBtn = document.querySelector("#checkInBtn");
 
 checkInBtn.addEventListener("click", () => {
@@ -116,7 +139,7 @@ checkOutBtn.addEventListener("click", () => {
   localStorage.setItem("myStaff", JSON.stringify(staffList));
   renderAttendance(staff);
 });
-renderAttendance(staff);
+
 
 // ADMIN TO VIEW LESSON NOTE
 staffList.forEach(staff => {
@@ -129,27 +152,33 @@ staffList.forEach(staff => {
 
 // STAFF DROPDOWN LOGIC
 const staffSelect = document.querySelector("#staffSelect");
+
+function populateStaffDropdown() {
+  staffSelect.innerHTML = `<option value="">-- Select Staff --</option>`;
+// Populate staff dropdown
+  staffList.forEach(staff => {
+    const option = document.createElement("option");
+    option.value = staff.id;
+    option.textContent = `${staff.firstName} ${staff.lastName}`;
+    staffSelect.appendChild(option);
+  });
+};
+populateStaffDropdown();
+
+// STAFF SELECTION LOGIC
 let selectedStaffId = null;
 
-// Populate staff dropdown
-staffList.forEach(staff => {
-  const option = document.createElement("option");
-  option.value = staff.id;
-  option.textContent = `${staff.firstName} ${staff.lastName}`;
-  staffSelect.appendChild(option);
+staffSelect.addEventListener("change", e => {
+  selectedStaffId = Number(e.target.value);
+
+  const staff = staffList.find(s => s.id === selectedStaffId);
+  renderAttendance(staff);
 });
 
 // Default selection
 if (staffList.length > 0) {
   selectedStaffId = staffList[0].id;
 }
-
-// Change selected staff
-staffSelect.addEventListener("change", e => {
-  selectedStaffId = Number(e.target.value);
-  const staff = staffList.find(s => s.id === selectedStaffId);
-  renderAttendance(staff);
-});
 
 // LIST OF UPLOADED NOTE
 const adminLessonList = document.querySelector("#adminLessonList");
@@ -178,13 +207,6 @@ renderLessonsForAdmin();
 attendanceDateInput.addEventListener("change", () => {
   if (!selectedStaffId) return;
 
-  const staff = staffList.find(s => s.id === selectedStaffId);
-  renderAttendance(staff);
-});
-
-// HOOK FILTER TO STAFF SELECTOR
-staffSelect.addEventListener("change", e => {
-  selectedStaffId = Number(e.target.value);
   const staff = staffList.find(s => s.id === selectedStaffId);
   renderAttendance(staff);
 });

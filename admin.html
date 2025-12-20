@@ -46,8 +46,6 @@
         <nav id="nav-links" class="nav-links">
         <ul>
             <li><a class="Home-page" href="index.html">Home</a></li>
-            <li><a class="admin-dashboard-page" href="admin.html">Admin</a></li>
-            <li><a class="staff-dashboard-page" href="#">Staff</a></li>
         </ul>
         </nav>
 
@@ -57,14 +55,16 @@
         <!-- STAFF INFORMATION SECTION -->
         <section id="adminInfo" class="staff-info"></section>
 
-        <section class="staff-selector">
+        <section class="staff-select-section">
           <label for="staffSelect"><strong>Select Staff:</strong></label>
-          <select id="staffSelect"></select>
+          <select id="staffSelect">
+            <option value="">-- Select Staff --</option>
+          </select>
         </section>
         
         <section class="attendance-section">
           <h2>Attendance History</h2>
-          
+
           <div class="attendance-filter">
             <label for="attendanceDate"><strong>Select Date:</strong></label>
             <input type="date" id="attendanceDate">

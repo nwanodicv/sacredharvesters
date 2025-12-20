@@ -1,7 +1,13 @@
 // 
-const staffId = Number(localStorage.getItem("currentStaff"));
+const user = JSON.parse(localStorage.getItem("currentUser"));
 const staffList = JSON.parse(localStorage.getItem("myStaff")) || [];
-console.log(staffList);
+
+if (!user || user.role !== "staff") {
+  alert("Access denied");
+  window.location.href = "index.html";
+}
+const staffId = user.id;
+
 
 if (!staffId) {
   alert("Access denied. Please login.");
@@ -21,7 +27,7 @@ if (!staff) {
 document.querySelector("#staffInfo").innerHTML = `
   <h2>Welcome, ${staff.firstName} ${staff.lastName}</h2>
   <p><strong>Email:</strong> ${staff.email}</p>
-  <p><strong>Subjects:</strong> ${staff.subjects}</p>
+  <p><strong>Subjects:</strong> ${staff.department}</p>
 `;
 
 
