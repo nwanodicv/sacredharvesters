@@ -46,6 +46,7 @@
         <nav id="nav-links" class="nav-links">
         <ul>
             <li><a class="Home-page" href="index.html">Home</a></li>
+            <li><a class="admin-dashboard-page" href="admin.html">Admin</a></li>
         </ul>
         </nav>
 
@@ -56,37 +57,44 @@
         <section id="adminInfo" class="staff-info"></section>
 
         <section class="staff-select-section">
-          <label for="staffSelect"><strong>Select Staff:</strong></label>
-          <select id="staffSelect">
-            <option value="">-- Select Staff --</option>
-          </select>
+          <aside>
+            <h2>List of Set Up Staff</h2>
+            <label for="staffSelect"><strong>Select Staff:</strong></label>
+            <select id="staffSelect">
+              <option value="">-- Select Staff --</option>
+            </select>
+          </aside>
         </section>
         
         <section class="attendance-section">
-          <h2>Attendance History</h2>
-
-          <div class="attendance-filter">
-            <label for="attendanceDate"><strong>Select Date:</strong></label>
-            <input type="date" id="attendanceDate">
-          </div>
-
-          <table class="attendance-table">
-            <thead>
-              <tr>
-                <th>Action</th>
-                <th>Date</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody id="attendanceHistory"></tbody>
-          </table>
-          <button id="checkInBtn">Check In Today</button>
-          <button id="checkOutBtn">Check Logout Today</button>
+          <aside>
+            <h2>Attendance History</h2>
+  
+            <div class="attendance-filter">
+              <label for="attendanceDate"><strong>Select Date:</strong></label>
+              <input type="date" id="attendanceDate">
+            </div>
+  
+            <table class="attendance-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="attendanceHistory"></tbody>
+            </table>
+            <button id="checkInBtn">Check In Today</button>
+            <button id="checkOutBtn">Check Out for Today</button>
+          </aside>
         </section>
 
         <section class="lesson-admin">
-          <h2>Lesson Notes</h2>
-          <ul id="adminLessonList"></ul>
+          <aside>
+            <h2>Lesson Notes</h2>
+            <ul id="adminLessonList"></ul>
+          </aside>
         </section>
     </main>
     <footer>

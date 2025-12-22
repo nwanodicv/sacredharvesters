@@ -1,5 +1,4 @@
 const staffList = JSON.parse(localStorage.getItem("myStaff")) || [];
-
 const user = JSON.parse(localStorage.getItem("currentUser"));
 
 if (!user || user.role !== "admin") {
@@ -7,26 +6,13 @@ if (!user || user.role !== "admin") {
   window.location.href = "index.html";
 }
 
-//console.log(adminList);
-
-//if (!adminId) {
-//  alert("Access denied. Please login.");
-//  window.location.href = "index.html";
-//}
-
-
-//if (!admin) {
-//  alert("Session expired. Please login again.");
-//  localStorage.removeItem("currentStaff");
-//  window.location.href = "index.html";
-//}
-
-
 // DISPLAY ADMIN INFO
 
 document.querySelector("#adminInfo").innerHTML = `
-  <h2>Welcome, Admin</h2>
-  <p><strong>Email:</strong> sacredharvester@gmail.com</p>
+ <aside>
+    <h2>Welcome, Admin</h2>
+    <p><strong>Email:</strong> sacredharvester@gmail.com</p>
+  </aside>
 `;
 
 // POPULATE TABLE 
@@ -101,7 +87,7 @@ checkInBtn.addEventListener("click", () => {
 
   const today = new Date().toLocaleDateString();
   const alreadyCheckedIn = staff.attendance.some(
-    a => a.type === "Sign In" && a.date === today
+    a => a.type === "Check In" && a.date === today
   );
 
   if (alreadyCheckedIn) {
@@ -109,11 +95,11 @@ checkInBtn.addEventListener("click", () => {
     return;
   }
 
-  staff.attendance.push({
-    type: "Sign In",
-    date: today,
-    time: new Date().toLocaleTimeString()
-  });
+  //staff.attendance.push({
+  //  type: "Check In",
+  //  date: today,
+  //  time: new Date().toLocaleTimeString()
+  //});
 
   localStorage.setItem("myStaff", JSON.stringify(staffList));
   renderAttendance(staff);
@@ -131,10 +117,12 @@ checkOutBtn.addEventListener("click", () => {
   staff.attendance = staff.attendance || [];
 
   staff.attendance.push({
-    type: "Logout",
+    type: "Check out",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString()
   });
+
+  
 
   localStorage.setItem("myStaff", JSON.stringify(staffList));
   renderAttendance(staff);

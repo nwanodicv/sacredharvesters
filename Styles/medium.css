@@ -3,4 +3,9 @@
     .hamburger {
         margin-left: 30rem;
     }
+
+    .hero-section .hero-text {
+        left: 45%;
+    }
+
 }

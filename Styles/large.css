@@ -37,9 +37,11 @@
         overflow-x: auto;
         white-space: nowrap;
     }
+
     /********** HERO SECTION **********/
     .hero-section .hero-text {
-    font-size: 1.6rem;
+        font-size: 1.6rem;
+        left: 45%;
     }
 
     /********** FOOTER SECTION **********/

@@ -109,6 +109,75 @@ li .admin-dashboard-page { /****Way finding ****/
     background-color: #faefef;
     width: 17.6rem;
 }
+
+aside {
+    width: 100%;
+    margin: 20px 10px;
+    border-style: ridge;
+    border:1px solid #800000;
+    border-radius: 4px;
+}
+
+aside > h2 {
+    color: #222;
+    margin: 10px 10px;
+}
+aside > p {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside label {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside select {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside button {
+    margin: 10px 10px;
+}
+
+/***************** Attendance Section *************/
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 0.6rem;
+  border: 1px solid #f8baba;
+  column-gap: 20px;
+}
+
+.checkin-btn, .checkout-btn {
+    width: auto;
+    height: 30px;
+    background-color: #faefef;
+    border: 1px solid #f8baba;
+    border-radius: 0.2rem;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #f8baba;
+}
+
+.checkin-btn:hover {
+    background-color: #f8baba;
+}
+
+
+aside table {
+    width: 100%;
+    margin: 10px 10px;
+}
+
 /************* HERO SECTION ****************/
     
 .hero-section {
@@ -166,7 +235,7 @@ li .admin-dashboard-page { /****Way finding ****/
     background-color: #fff;
     color: #222;
     padding: 0.8rem 1.6rem;
-    font-size: 1.6rem;
+    font-size: 0.2rem;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
@@ -246,18 +315,6 @@ dialog a {
 
 dialog a:hover {
     background-color: #f8d0d0;
-}
-    
-/***************** Attendance Section *************/
-.attendance-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.attendance-table th,
-.attendance-table td {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
 }
 
 /***************** FOOTER *************/

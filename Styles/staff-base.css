@@ -128,6 +128,41 @@ li .staff-dashboard-page { /****Way finding ****/
     background-color: #faefef;
     width: 17.6rem;
 }
+
+aside {
+    width: 100%;
+    margin: 20px 10px;
+    border-style: ridge;
+    border:1px solid #800000;
+    border-radius: 4px;
+}
+
+aside > h2 {
+    color: #222;
+    margin: 10px 10px;
+}
+aside > p {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside label {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside select {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside table {
+    padding: 10px 0;
+}
+
+aside button {
+    margin: 10px 10px;
+}
 /************* HERO SECTION ****************/
     
 .hero-section {
@@ -179,7 +214,7 @@ li .staff-dashboard-page { /****Way finding ****/
 .hero-section .hero-text {
     position: absolute;
     bottom: 20%;            /* Move up from bottom */
-    left: 45%;
+    left: 30%;
     transform: translateX(-50%);
     opacity: 60%;
     background-color: #fff;

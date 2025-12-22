@@ -22,15 +22,14 @@ if (!staff) {
   window.location.href = "index.html";
 }
 
-
 // DISPLAY STAFF INFO
 document.querySelector("#staffInfo").innerHTML = `
-  <h2>Welcome, ${staff.firstName} ${staff.lastName}</h2>
-  <p><strong>Email:</strong> ${staff.email}</p>
-  <p><strong>Subjects:</strong> ${staff.department}</p>
+<h2>Welcome, ${staff.firstName} ${staff.lastName}</h2>
+ <aside>
+    <p><strong>Email:</strong> ${staff.email}</p>
+    <p><strong>Subjects:</strong> ${staff.department}</p>
+  </aside>
 `;
-
-
 
 const attendanceBody = document.querySelector("#attendanceHistory");
 const viewHistoryBtn = document.querySelector('#view-history-btn');
@@ -52,34 +51,6 @@ viewHistoryBtn.addEventListener("click", () => {
     attendanceBody.appendChild(row);
   });
 });
-
-//const signInBtn = document.querySelector("#signInBtn");
-//
-//function renderAttendance() {
-//  attendanceBody.innerHTML = "";
-//
-//  staff.attendance.forEach(a => {
-//    const row = document.createElement("tr");
-//    row.innerHTML = `
-//      <td>${a.date}</td>
-//      <td>${a.time}</td>
-//    `;
-//    attendanceBody.appendChild(row);
-//  });
-//}
-//
-//signInBtn.addEventListener("click", () => {
-//  const now = new Date();
-//
-//  staff.attendance.push({
-//    type: "Checked In",
-//    date: now.toLocaleDateString(),
-//    time: now.toLocaleTimeString()
-//  });
-//
-//  localStorage.setItem("myStaff", JSON.stringify(staffList));
-//  renderAttendance();
-//});
 
 // UPLOAD SECTION
 const uploadBtn = document.querySelector("#uploadLesson");
@@ -111,7 +82,6 @@ function renderLessons() {
   });
 }
 renderLessons();
-
 
 const logoutBtn = document.querySelector("#logoutBtn");
 
@@ -154,10 +124,5 @@ const today = new Date().toLocaleDateString();
 const alreadySignedIn = staff.attendance.some(
   a => a.type === "Sign In" && a.date === today
 );
-
-//if (alreadySignedIn) {
-//  alert("You have already signed in today.");
-//  return;
-//};
 
 
