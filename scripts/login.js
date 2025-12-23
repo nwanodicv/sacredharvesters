@@ -31,9 +31,3 @@ window.staffLogin = function(email, password) {
 
   window.location.href = "staff.html";
 };
-
-// STAFF LOGIN PROTECTION
-if (!staff.active) {
-  alert("Account deactivated. Contact admin.");
-  return;
-}

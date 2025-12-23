@@ -1,27 +1,12 @@
-// DIALOG BOX FUNCTIONALITY
-const dialogBox = document.getElementById("dialog-box");
 const heroSignInBtn = document.querySelector(".hero-signin");
-const closeDialogBtn = document.getElementById("close-dialog");
+const staffNavLink = document.querySelector(".staff-dashboard-page");
 
-heroSignInBtn.addEventListener("click", () => {
-  dialogBox.showModal();
-});
-
-closeDialogBtn.addEventListener("click", () => {
-  dialogBox.close();
-});
-
-// SIGNIN BUTTON IN DIALOG
-const staffDialogBoxSignIn = document.querySelector('.staff-dashboard-page');
-const staffDashboardLink = document.querySelector("#staff-dashboard");
-
- // CREATE STAFF SIGN-IN DIALOG
-staffDialogBoxSignIn.addEventListener("click", () => {
+function openStaffLoginDialog() {
   const dialogStaff = document.createElement("dialog");
 
   dialogStaff.innerHTML = `
     <form id="staffLoginForm">
-      <h3>Sign-In</h3>
+      <h3>Sign In</h3>
 
       <label>Email
         <input type="email" id="loginEmail" required>
@@ -40,54 +25,24 @@ staffDialogBoxSignIn.addEventListener("click", () => {
 
   const form = dialogStaff.querySelector("#staffLoginForm");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", e => {
     e.preventDefault();
 
     const email = dialogStaff.querySelector("#loginEmail").value.trim();
     const password = dialogStaff.querySelector("#loginPassword").value;
 
     staffLogin(email, password);
+    dialogStaff.close();
   });
 
-  dialogStaff.addEventListener("close", () => {
-    dialogStaff.remove();
-  });
-});
+  dialogStaff.addEventListener("close", () => dialogStaff.remove());
+}
 
-staffDashboardLink.addEventListener("click", () => {
-  const dialogStaff = document.createElement("dialog");
+// HERO BUTTON
+heroSignInBtn?.addEventListener("click", openStaffLoginDialog);
 
-  dialogStaff.innerHTML = `
-    <form id="staffLoginForm">
-      <h3>Sign-In</h3>
-
-      <label>Email
-        <input type="email" id="loginEmail" required>
-      </label>
-
-      <label>Password
-        <input type="password" id="loginPassword" required>
-      </label>
-
-      <button type="submit">Sign In</button>
-    </form>
-  `;
-
-  document.body.appendChild(dialogStaff);
-  dialogStaff.showModal();
-
-  const form = dialogStaff.querySelector("#staffLoginForm");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const email = dialogStaff.querySelector("#loginEmail").value.trim();
-    const password = dialogStaff.querySelector("#loginPassword").value;
-
-    staffLogin(email, password);
-  });
-
-  dialogStaff.addEventListener("close", () => {
-    dialogStaff.remove();
-  });
+// NAV STAFF LINK
+staffNavLink?.addEventListener("click", e => {
+  e.preventDefault(); // 🔥 CRITICAL
+  openStaffLoginDialog();
 });
