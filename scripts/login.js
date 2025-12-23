@@ -1,5 +1,5 @@
 // ADMIN LOGIN DETAILS
-const ADMIN_EMAIL = "sacredharvester@gmail.com";
+const ADMIN_EMAIL = "sacredharvesters@gmail.com";
 const ADMIN_PASSWORD = "admin111";
 
 window.staffLogin = function(email, password) {
