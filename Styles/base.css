@@ -118,35 +118,36 @@ li .home-page { /****Way finding ****/
   text-align: center;
 }
 
-aside {
+.aside {
     width: 100%;
-    margin: 20px 10px;
+    margin: 20px 0;
+    margin-right: 20px;
     border-style: ridge;
-    border-top:1px solid #800000;
-    border-bottom-right-radius: 30px;
-    border-top-left-radius: 30px;
+    border:1px solid #800000;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
 }
 
-aside > h2 {
+.aside > h2 {
     color: #222;
     margin: 10px 10px;
 }
-aside > p {
-    color: #222;
+.aside > p {
+    color: #fff;
     margin: 10px 10px;
 }
 
-aside label {
-    color: #222;
-    margin: 10px 10px;
-}
-
-aside select {
+.aside label {
     color: #222;
     margin: 10px 10px;
 }
 
-aside button {
+.aside select {
+    color: #222;
+    margin: 10px 10px;
+}
+
+.aside button {
     margin: 10px 10px;
 }
 
@@ -162,19 +163,19 @@ aside button {
 
 @keyframes fadeColor {
   from {
-    background-color: pink;
+    background-color: #800000;
   }
   to {
     background-color: rgb(224, 45, 224);
   }
 }
 
-aside {
+.animation {
   animation-name: fadeIn;
   animation-duration: 10s;
 }
 
-aside {
+.animation {
   width: 100%;
   height: auto;
   background-color: red;
@@ -183,11 +184,11 @@ aside {
   animation: fadeColor 2s ease-in-out infinite alternate;
 }
 
-aside {
+.animation {
   transition: background-color 0.5s ease;
 }
 
-.box:hover {
+.animation:hover {
   background-color: lightblue;
 }
 
