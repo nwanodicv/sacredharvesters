@@ -1,6 +1,6 @@
 // ADMIN LOGIN DETAILS
 const ADMIN_EMAIL = "sacredharvester@gmail.com";
-const ADMIN_PASSWORD = "12345678";
+const ADMIN_PASSWORD = "admin111";
 
 window.staffLogin = function(email, password) {
   const staffList = JSON.parse(localStorage.getItem("myStaff")) || [];
