@@ -118,6 +118,81 @@ li .home-page { /****Way finding ****/
   text-align: center;
 }
 
+aside {
+    width: 100%;
+    margin: 20px 10px;
+    border-style: ridge;
+    border-top:1px solid #800000;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+aside > h2 {
+    color: #222;
+    margin: 10px 10px;
+}
+aside > p {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside label {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside select {
+    color: #222;
+    margin: 10px 10px;
+}
+
+aside button {
+    margin: 10px 10px;
+}
+
+/************* ANIMATION SECTION************/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} 
+
+@keyframes fadeColor {
+  from {
+    background-color: pink;
+  }
+  to {
+    background-color: rgb(224, 45, 224);
+  }
+}
+
+aside {
+  animation-name: fadeIn;
+  animation-duration: 10s;
+}
+
+aside {
+  width: 100%;
+  height: auto;
+  background-color: red;
+
+  /* Use the shorthand animation property */
+  animation: fadeColor 2s ease-in-out infinite alternate;
+}
+
+aside {
+  transition: background-color 0.5s ease;
+}
+
+.box:hover {
+  background-color: lightblue;
+}
+
+
+
 /************* HERO SECTION ****************/
     
 .hero-section {
