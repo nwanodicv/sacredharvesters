@@ -52,6 +52,16 @@
         <h1>Staff Setup Form</h1>
         <form method="GET" action="" id="staffForm">
             <aside>
+                <label for="role">
+                  Register As
+                  <select id="role" required>
+                    <option value="">-- Select Role --</option>
+                    <option value="student">Student</option>
+                    <option value="staff">Staff</option>
+                    <option value="parent">Parent</option>
+                  </select>
+                </label>
+                
                 <label for="firstName">First Name
                 <input name="firstname" id="firstName" type="text" autocomplete="given-name" title="Your First Name" required>
                 </label>

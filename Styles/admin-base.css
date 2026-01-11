@@ -23,7 +23,7 @@ Hamburger closing icon: \00D7*/
 }
 
 header, main, footer {
-    max-width: 900px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 /*************** HEADER SECTION **************/
@@ -140,6 +140,48 @@ aside select {
 aside button {
     margin: 10px 10px;
 }
+
+/* ============================
+   NOTIFICATION BELL STYLES
+   ============================ */
+
+.notification-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+#notificationBell {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Red badge */
+#notificationCount {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none;
+}
+
+.notifications-section {
+  display: none;
+  margin-top: 2rem;
+}
+
+.notifications-section.show {
+  display: block;
+}
+
+
+
 
 /***************** Attendance Section *************/
 .attendance-table {

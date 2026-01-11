@@ -45,6 +45,11 @@
         width: 35rem;
     }
 
+    .my-dialog {
+        width: 50rem;
+        height: 25rem;
+    }
+
     /********** FOOTER SECTION **********/
     footer {
         grid-template-columns: repeat(3, 1fr);
@@ -52,4 +57,32 @@
         text-align: left;
         margin-top: 20px;
     }
+
+    .profile-card {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .profile-card p {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+
+    .gallery-img{
+        width: 250px;
+        
+    }
+
+    /********** Creche section **********/
+    
+
+    .creche-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
+

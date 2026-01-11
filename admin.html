@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="Styles/form-base.css">
     <link rel="stylesheet" href="Styles/medium.css">
     <link rel="stylesheet" href="Styles/large.css">
+    <link rel="stylesheet" href="Styles/notification.css">
     
 
     <!--------------------SCRIPTS----------------------->
@@ -21,7 +22,19 @@
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/login.js" defer></script>
     <script src="scripts/dialogbox.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
+    <script src="scripts/notifications-core.js" defer></script>
     <script src="scripts/admin-dashboard.js" defer></script>
+    <script src="scripts/admin-notifications.js" defer></script>
+    <script src="scripts/notifications.js" defer></script>
+    <script src="scripts/notification-bell.js" defer></script>
+    <script src="scripts/admin-notifications.js" defer></script>
+    <script type="module" src="scripts/admin-lessons.js"></script>
+
+    
+    <script src="scripts/roles.js" defer></script>
+    <script src="scripts/route-guard.js" defer></script>
+    <script src="scripts/utils/report-utils.js" defer></script>
   
     <!--Open Graph-->
     <meta property="og:title" content="Sacred Harvasters Internation School Home Page">
@@ -49,10 +62,103 @@
             <li><a class="admin-dashboard-page" href="admin.html">Admin</a></li>
         </ul>
         </nav>
+        <!-- NOTIFICATION BELL -->
+        <div class="notification-wrapper">
+        
+          <!-- Bell icon -->
+          <button id="notificationBell" aria-label="Notifications">
+            🔔
+          </button>
+        
+          <!-- Unread count badge -->
+          <span id="notificationCount" aria-hidden="true">0</span>
+        
+        </div>
 
     </header>
+    <!--Navigation Submenu-->
+    <nav id="nav-links" class="nav-links">
+      <ul>
+          <li><a class="#" href="#">Staff Management</a></li>
+          <li><a class="#" href="#">Attendance</a></li>
+          <li><a class="#" href="#">Lesson Note</a></li>
+          <li><a class="#" href="reports.html">Reports</a></li>
+      </ul>
+    </nav>
     <main>
         <h1>Admin</h1>
+        <!-- NOTIFICATIONS DISPLAY AREA -->
+        <section>
+          <h3>Send Notification</h3>
+        
+          <form id="notifyForm">
+            <input id="notifTitle" placeholder="Title" required />
+            <textarea id="notifMessage" placeholder="Message" required></textarea>
+        
+            <select id="notifRole" required>
+              <option value="">Select Target</option>
+              <option value="staff">Staff</option>
+              <option value="student">Student</option>
+              <option value="parent">Parent</option>
+              <option value="all">All Users</option>
+            </select>
+        
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+    
+        <section class="student-management">
+          <h2>Student Management</h2>
+        
+          <!-- Add Student -->
+          <input id="studentName" placeholder="Student Name">
+          <input id="studentClass" placeholder="Class">
+          
+          <select id="parentSelect">
+            <option value="">Assign Parent</option>
+          </select>
+        
+          <button id="addStudentBtn">Add Student</button>
+        <!--------- Link Student With Parent-------->
+        <section>
+          <aside>
+            <h2>Link Student with Parent</h2>
+            <select id="linkParentSelect">
+              <option value="">Select Parent</option>
+            </select>
+            <select id="studentLinkSelect">Select Student Link</select>
+            <button id="linkParentBtn">Link Parent</button>
+          </aside>
+        </section>  
+        
+          <!-- Student List -->
+          <ul id="studentList"></ul>
+        </section>
+
+        <section class="results-management">
+          <h2>Publish Student Results</h2>
+        
+          <select id="resultStudentSelect">
+            <option value="">Select Student</option>
+          </select>
+        
+          <input id="resultSubject" placeholder="Subject">
+          <input id="resultScore" type="number" placeholder="Score">
+          
+          <select id="resultTerm">
+            <option value="">Select Term</option>
+            <option value="First Term">First Term</option>
+            <option value="Second Term">Second Term</option>
+            <option value="Third Term">Third Term</option>
+          </select>
+        
+          <button id="publishResultBtn">Publish Result</button>
+        
+          <ul id="resultPreview"></ul>
+        </section>
+
+
         <!-- STAFF INFORMATION SECTION -->
         <section id="adminInfo" class="staff-info"></section>
 
@@ -92,6 +198,21 @@
             <button id="checkOutBtn">Check Out for Today</button>
           </aside>
         </section>
+        <section class="student-attendance-admin">
+          <h2>Student Attendance</h2>
+        
+          <select id="attendanceStudentSelect">
+            <option value="">Select Student</option>
+          </select>
+        
+          <select id="attendanceStatus">
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+          </select>
+        
+          <button id="markAttendanceBtn">Mark Attendance</button>
+        </section>
+        
 
         <section class="attendance-summary">
           <aside>
@@ -101,10 +222,25 @@
           </aside>
         </section>
 
-        <section class="lesson-admin">
+        <section class="card">
+          <h2>Lesson Notes (Visible to Students)</h2>
+          <div id="lessonNotesList"></div>
+        </section>
+        
+        <section class="card">
+          <h2>Lesson Plans (Admin Only)</h2>
+          <div id="lessonPlansList"></div>
+        </section>
+        
+        <section>
           <aside>
-            <h2>Lesson Notes</h2>
-            <ul id="adminLessonList"></ul>
+            <ul>
+              <li>
+                <a href="reports.html">
+                  📊 Reports & Analytics
+                </a>
+              </li>
+            </ul>
           </aside>
         </section>
     </main>

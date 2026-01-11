@@ -8,3 +8,4 @@ navButton.addEventListener('click', () => {
    navLinks.classList.toggle('show');
    console.log('navigation bar loaded.')
 });
+

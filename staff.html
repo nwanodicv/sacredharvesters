@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to the Sacred Harvasters International School Home Page. Explore our academic programs, extracurricular activities, and community events. Join us in fostering a nurturing mind environment and cultivating excellence for holistic education and personal growth.">
-    <title>Sacred Harvasters International School Home Page</title>
+    <title>SHICS Home Page</title>
     <meta name="author" content="Vjutech LTD"/>
     <meta name="robots" content="index, follow">
 
@@ -13,13 +13,23 @@
     <link rel="stylesheet" href="Styles/staff-base.css">
     <link rel="stylesheet" href="Styles/medium.css">
     <link rel="stylesheet" href="Styles/large.css">
+    <link rel="stylesheet" href="Styles/notification.css">
+    <link rel="stylesheet" href="Styles/sidebar.css">
     
 
     <!--------------------SCRIPTS----------------------->
     <script src="scripts/date.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/login.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
+    <script src="scripts/notifications.js" defer></script>
+    <script src="scripts/notification-bell.js" defer></script>
     <script src="scripts/staff-dashboard.js" defer></script>
+    <script src="scripts/roles.js" defer></script>
+    <script src="scripts/route-guard.js" defer></script>
+    <script src="scripts/student-lesson.js" defer></script>
+    <script type="module" src="scripts/staff-lesson-upload.js"></script>
+
   
     <!--Open Graph-->
     <meta property="og:title" content="Sacred Harvasters Internation School Home Page">
@@ -35,7 +45,7 @@
 <body>
     <header>
         <img src="images/harvester.svg" alt="Logo" loading="lazy">
-        <span>Sacred Harvasters International School</span>
+        <span>SHICS</span>
 
         <!-----------------HAMBURGER---------------->
         <button aria-label="hamburger button" class="hamburger" id="ham-btn"></button>
@@ -47,43 +57,107 @@
             <li><a class="staff-dashboard-page" href="staff.html">Staff</a></li>
         </ul>
         </nav>
-
+        <!-- NOTIFICATION BELL -->
+        <div class="notification-wrapper">
+        
+          <!-- Bell icon -->
+          <button id="notificationBell" aria-label="Notifications">
+            🔔
+          </button>
+        
+          <!-- Unread count badge -->
+          <span id="notificationCount" aria-hidden="true">0</span>
+        
+        </div>
+        
     </header>
-    <main>
-        <h1>Staff Dashboard</h1>
-        <section class="hero-section">
-            <img class="hero-img" src="images/staff-image.jfif" alt="Sacred Harvesters Int'l School Staff Hero Image" loading="lazy">
-            <h2 class="hero-text">We Cheerish All Our Dedicated Staff</h2>
-        </section>
-        <!-- STAFF INFORMATION SECTION -->
-         <section id="staffInfo" class="staff-info"></section>
+    <!--Navigation Submenu-->
+     <nav id="nav-links" class="nav-links">
+      <ul>
+          <li><a class="#" href="#">Attendance History</a></li>
+          <li><a class="#" href="#">Upload Lessons</a></li>
+          <li><a class="#" href="#">Profile</a></li>
+      </ul>
+    </nav>
+    
 
-         <h2>Attendance History</h2>
-        <section class="attendance-section">
-            <aside>
-                <table class="attendance-table">
-                  <thead>
-                    <tr>
-                      <th>Action</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tbody id="attendanceHistory"></tbody>
-                </table>
-                <button class="View-history-btn" id="view-history-btn">
-                  View Attendance History
-                </button>
-            </aside>
+    <main>
+      <h1>Staff Dashboard</h1>
+      <!-- NOTIFICATIONS DISPLAY AREA -->
+      <section class="notifications-section">
+        <h2>Notifications</h2>
+        <div id="notifications"></div>
+      </section>
+      <section class="hero-section">
+          <img class="hero-img" src="images/staff-image.jfif" alt="Sacred Harvesters Int'l School Staff Hero Image" loading="lazy">
+          <h2 class="hero-text">We Cheerish All Our Dedicated Staff</h2>
+      </section>
+      <!-- STAFF INFORMATION SECTION -->
+       <section id="staffInfo" class="staff-info"></section>
+       <h2>Attendance History</h2>
+      <section class="attendance-section">
+          <aside>
+              <table class="attendance-table">
+                <thead>
+                  <tr>
+                    <th>Action</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody id="attendanceHistory"></tbody>
+              </table>
+              <button class="View-history-btn" id="view-history-btn">
+                View Attendance History
+              </button>
+          </aside>
+      </section>
+      <section>
+      <section class="card">
+          <h2>Upload Lesson Content</h2>
+        
+          <form id="lessonUploadForm">
+            <input type="text" id="title" placeholder="Title" required />
+        
+            <select title="Select Subject" id="subject" required>
+              <option value="">Select Subject</option>
+              <option>Mathematics</option>
+              <option>English</option>
+              <option>Physics</option>
+            </select>
+        
+            <select title="Select Class" id="classId" required>
+              <option value="">Select Class</option>
+              <option>JSS1</option>
+              <option>JSS2</option>
+              <option>SS1</option>
+            </select>
+        
+            <select title="Select Term" id="term" required>
+              <option>First Term</option>
+              <option>Second Term</option>
+              <option>Third Term</option>
+            </select>
+        
+            <select title="Select file Type" id="type" required>
+              <option value="lesson_note">Lesson Note (Students see)</option>
+              <option value="lesson_plan">Lesson Plan (Admin only)</option>
+            </select>
+            <label for="fileUpload">
+              <input placeholder="Select File" type="file" id="fileUpload" accept=".pdf,.doc,.docx,.ppt,.pptx" required>
+            </label>
+        
+            <button type="submit">Upload</button>
+          </form>
         </section>
         
-        <section class="lesson-upload">
-          <h2>Upload Lesson Note</h2>
-          <input type="file" id="lessonFile">
-          <button class="upload-btn" id="uploadLesson">Upload</button>
-        
-          <ul id="lessonList"></ul>
+        <section class="card">
+          <h2>My Uploads</h2>
+          <div id="myUploads"></div>
         </section>
+
+        </section>
+        
         
                 
         

@@ -1,33 +1,46 @@
-// ADMIN LOGIN DETAILS
+/**
+ * login.js
+ * -----------------------------
+ * Handles login for Admin, Staff, Student, and Parent.
+ * Stores authenticated user in localStorage.
+ */
+
 const ADMIN_EMAIL = "sacredharvesters@gmail.com";
 const ADMIN_PASSWORD = "admin111";
 
-window.staffLogin = function(email, password) {
-  const staffList = JSON.parse(localStorage.getItem("myStaff")) || [];
+window.staffLogin = function (email, password) {
 
-  // ADMIN LOGIN FIRST
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  /* ADMIN */
   if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
     localStorage.setItem("currentUser", JSON.stringify({
-      role: "admin"
+      role: "admin",
+      email
     }));
     window.location.href = "admin.html";
     return;
   }
 
-  // STAFF LOGIN
-  const staff = staffList.find(
-    s => s.email === email && s.password === password
+  /* AUTH USER */
+  const user = users.find(
+    u => u.email === email && u.password === password
   );
 
-  if (!staff) {
-    alert("Invalid email or password");
+  if (!user) {
+    alert("Invalid login credentials.");
     return;
   }
 
   localStorage.setItem("currentUser", JSON.stringify({
-    role: "staff",
-    id: staff.id
+    id: user.id,
+    role: user.role,
+    email: user.email
   }));
 
-  window.location.href = "staff.html";
+  /* ROUTE BY ROLE */
+  if (user.role === "staff") window.location.href = "staff.html";
+  else if (user.role === "student") window.location.href = "student.html";
+  else if (user.role === "parent") window.location.href = "parent.html";
+  else alert("Unknown role");
 };

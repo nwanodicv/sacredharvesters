@@ -1,0 +1,67 @@
+/************* ANIMATION SECTION************/
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeColor {
+  from {
+    background-color: #800000;
+  }
+  to {
+    background-color: rgb(224, 45, 224);
+  }
+}
+
+.animation {
+  animation-name: fadeIn;
+  animation-duration: 12s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition: background-color 0.5s ease;
+}
+
+.animation {
+  width: 100%;
+  height: auto;
+  background-color: red;
+
+  /* Use the shorthand animation property */
+  animation: fadeColor 2s ease-in-out infinite alternate;
+}
+
+.animation {
+  transition: background-color 0.5s ease;
+}
+
+.animation:hover {
+  background-color: lightblue;
+}
+
+.staff-intro.animation {
+    animation: fadeIn 3s ease-in-out 1;
+}
+
+.staff-intro.transition {
+    transition: background-color 0.5s ease;
+}
+
+/************** Gallery animation Section*****************/
+.picture-gallery.animation {
+    animation: fadeIn 4s ease-in-out 1;
+}
+.picture-gallery.transition {
+    transition: background-color 0.5s ease;
+}
+
+.gallery-card.rotate {
+    transition: transform 0.5s ease;
+    animation-duration: infinite;
+}
+
+/************* END OF ANIMATION SECTION************/

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to the Sacred Harvasters International School Home Page. Explore our academic programs, extracurricular activities, and community events. Join us in fostering a nurturing mind environment and cultivating excellence for holistic education and personal growth.">
-    <title>Sacred Harvasters International School Home Page</title>
+    <title>SHICS Home Page</title>
     <meta name="author" content="Vjutech LTD"/>
     <meta name="robots" content="index, follow">
 
@@ -14,14 +14,18 @@
     <link rel="stylesheet" href="Styles/base.css">
     <link rel="stylesheet" href="Styles/medium.css">
     <link rel="stylesheet" href="Styles/large.css">
+    <link rel="stylesheet" href="Styles/animation.css">
     
 
     <!--------------------SCRIPTS----------------------->
     <script src="scripts/date.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
+    <script type="module" src="scripts/script.js"></script>
     <script src="scripts/login.js" defer></script>
     <script src="scripts/dialogbox.js" defer></script>
-  
+    <script type="module" src="scripts/gallery.mjs"></script>
+    
+    <!------------------META TAGS FOR SOCIAL MEDIA-------------->
     <!--Open Graph-->
     <meta property="og:title" content="Sacred Harvasters Internation School Home Page">
     <meta property="og:description" content="Welcome to the Sacred Arvasters International School Home Page. Explore our academic programs, extracurricular activities, and community events. Join us in fostering a nurturing mind environment and cultivating excellence for holistic education and personal growth.">
@@ -36,7 +40,7 @@
 <body>
     <header>
         <img src="images/harvester.svg" alt="Logo" loading="lazy">
-        <span>Sacred Harvasters International School</span>
+        <span>SHICS</span>
 
         <!-----------------HAMBURGER---------------->
         <button aria-label="hamburger button" class="hamburger" id="ham-btn"></button>
@@ -45,6 +49,7 @@
         <nav id="nav-links" class="nav-links">
         <ul>
             <li><a class="home-page" href="admin.html">Home</a></li>
+            <li><a class="about-page" href="admin.html">About Us</a></li>
             <li><a class="staff-dashboard-page" href="#">Sign In</a></li>
         </ul>
         </nav>
@@ -55,30 +60,34 @@
         <section class="hero-section">
             <a href="#" class="hero-btn hero-signin" aria-label="Sign In">SignIn</a>
             <a href="form.html" class="hero-signup" aria-label="Sign Up">SignUp</a>
-            <img class="hero-img" src="images/hero-image.webp" alt="Sacred Harvesters Int'l School Hero Image" loading="lazy">
+            <img class="hero-img" src="images/landing-hero-image.webp" alt="Sacred Harvesters Int'l School Hero Image" loading="lazy">
             <h2 class="hero-text">Sacred Harvesters Int'L Christian School</h2>
         </section>
-        <!-- DASHBOARD PATHWAY DIALOG BOX SECTION -->
-        <section>
-            <dialog class="dialog-box" id="dialog-box" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
-                <aside>
-                    <h1>Dashboard Pathways</h1>
-                    <button class="close-dialog" id="close-dialog" aria-label="Close Dialog Box">X</button>
-                </aside>
-                <ul>
-                    <li><a id="staff-dashboard" href="#">Go To Dashboard</a></li>
-                </ul>
-            </dialog>
-        </section>
+
         <section class="staff-intro">
             <aside class="aside animation">
                 <h2>Staff Dashboard</h2>
                 <p>
-                The Sacred Harvesters International School Staff Portal is designed to support
+                The Sacred Harvesters International Christian School Staff Dashboard is designed to support
                 our dedicated teachers and staff by providing a simple, secure, and efficient
                 way to manage daily activities. This platform helps streamline attendance,
                 lesson note submissions, and access to important staff information.
                 </p>
+                <button class="open-dialogbox" id="open-dialogbox">Learn More</button>
+                <!--DIALOG BOX SECTION-->
+                <dialog class="dialog-box my-dialog" id="dialog-box" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
+                    <img src="images/dashboard-monitor.svg" alt="Dashboard Icon" loading="lazy">
+                    <aside>
+                        <h3>Details of Staff Dashboard</h3>
+                    </aside>
+                    <p>The Staff Dashboard serves as your central workspace within the Sacred Harvesters
+                    International Christian School Dashboard. From here, you can view your personal information,
+                    monitor your attendance history, and manage your daily academic responsibilities.
+                    The dashboard is designed to be simple and user-friendly, ensuring that you can
+                    focus more on teaching and less on administrative processes. All data displayed
+                    here is securely managed and updated by the school administration.</p>
+                    <button class="close-dialog" id="close-dialogbox" aria-label="Close Dialog Box">Close</button>
+                </dialog>
             </aside>
 
             <aside  class="aside animation">
@@ -89,6 +98,19 @@
                 ensures that your attendance is accurately recorded by the administration,
                 promoting transparency and accountability.
                 </p>
+                <button class="open-dialog" id="open-whatToDo">Learn More</button>
+                <!--DIALOG BOX SECTION-->
+                <dialog class="dialog-box my-dialog" id="whattodo-dialogbox" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
+                <aside>
+                    <h3>What you can Do</h3>
+                </aside>
+                <p>This platform empowers you to actively engage with your professional records.
+                You can view attendance entries recorded by the administration, ensuring accuracy
+                and transparency. Lesson notes can be uploaded directly through your dashboard,
+                allowing the school to keep a well-organized academic archive. By using this system,
+                you contribute to a more efficient workflow and better communication between staff
+                and school management.</p>
+                <button class="close-dialog" id="close-WhatToDo" aria-label="Close Dialog Box">Close</button>
             </aside>
 
             <aside class="aside animation">
@@ -98,6 +120,18 @@
                 our ongoing effort to create a supportive and organized working environment
                 where every staff member’s contribution is recognized and properly documented.
                 </p>
+                <button class="open-dialog" id="open-encouragement">Learn More</button>
+                <!--DIALOG BOX SECTION-->
+                <dialog class="dialog-box my-dialog" id="encouragement-dialogbox" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
+                <aside>
+                    <h3>Encouragement</h3>
+                </aside>
+                <p>At Sacred Harvesters International Christian School, we deeply appreciate the dedication,
+                discipline, and passion our staff bring to their roles. This portal is a reflection
+                of our commitment to supporting you with modern tools that recognize your efforts.
+                Every attendance record and lesson submission helps document your contribution to
+                the growth and success of our students and the institution as a whole.</p>
+                <button class="close-dialog" id="close-encouragement" aria-label="Close Dialog Box">Close</button>
             </aside>
             <aside class="aside animation">
                 <h2>Call To Action</h2>
@@ -106,8 +140,88 @@
                 staff member. If you experience any issues accessing your account, kindly
                 contact the school administration for assistance.
                 </p>
+                <button class="open-dialog" id="open-callToAction">Learn More</button>
+                <!--DIALOG BOX SECTION-->
+                <dialog class="dialog-box my-dialog" id="callToAction-dialogbox" aria-labelledby="dialog-label" aria-describedby="dialog-desc">
+                    <img src="images/advertising.svg" alt="Call To Action icon">   
+                    <aside>
+                        <h3>Call To Action</h3>
+                    </aside>
+                <p>We encourage all staff members to make full use of this portal to stay informed
+                and organized. Kindly sign in to access your dashboard and manage your records.
+                Newly appointed staff members should complete the sign-up process to get started.
+                If you encounter any challenges while using the system, please reach out to the
+                school administration for prompt assistance and support.</p>
+                <button class="close-dialog" id="close-callToAction" aria-label="Close Dialog Box">close</button>
             </aside>
         </section>
+        <!--END OF STAFF INTRO SECTION-->
+
+        <!--PICTURE GALLERY SECTION-->
+        <section class="picture-gallery" id="picture-gallery">
+            <h2>Picture Gallery</h2>
+            <div class="gallery-container" id="gallery-container">
+                <!-- Gallery images will be dynamically inserted here -->
+            </div>
+        </section>
+        <!--END OF PICTURE GALLERY SECTION-->
+
+        <!--Student Dry Season Wares Time Table SECTION-->
+        <section class="timetable-section">
+            <h2>Student Dry Season Wares Time Table</h2>
+            <img src="images/drywares-timetable.webp" class="wares-TimeTable-img" alt="Time Table Icon" loading="lazy">
+            <p>
+                Sacred Harvesters International Christian School is pleased to announce the
+                release of the Dry Season Wares Time Table for students. This schedule is
+                designed to help students and parents plan their activities effectively
+                during the dry season. The time table includes important dates for
+                academic sessions, extracurricular activities, and special events.
+            </p>
+            <a href="timetable.html" class="timetable-btn" aria-label="View Time Table">View Time Table</a>
+        </section>
+        <!--END OF Student Dry Season Wares Time Table SECTION-->
+
+        <!--Creche kids Section-->
+        <section class="creche-section">
+            <h2>Creche Kids Enrollment Now Open</h2>
+            <aside class="creche-container">
+                <aside>
+                    <img src="images/creche-img.webp" alt="Creche Kids Icon" loading="lazy">
+                </aside>
+                <aside>
+                    <h3>Creche Kids Enrollment</h3>
+                    <p>
+                        Sacred Harvesters International Christian School is excited to announce
+                        that enrollment for our Creche Kids program is now open. We provide a
+                        safe, nurturing, and stimulating environment for young children to
+                        explore and learn. Our experienced staff are dedicated to fostering
+                        early childhood development through engaging activities and personalized care.
+                    </p>
+                    <p>
+                        Parents are encouraged to enroll their children early to secure a spot
+                        in our popular Creche Kids program. We look forward to welcoming new
+                        families into our school community and providing the best start for
+                        your child's educational journey.
+                    </p>
+                </aside>
+                <aside>
+                    <img src="images/creche-image.webp" alt="Enroll Now Icon" loading="lazy">
+                </aside>
+            </aside>
+            <a href="form.html" class="creche-btn" aria-label="Enroll Now for Creche Kids">Enroll Now</a>
+        </section>
+        <!-- School Admissions Section -->
+        <section class="admissions-section">
+            <h2>School Admissions Now Open for Regular Pupils</h2>
+            <img src="images/our-admission.webp" class="admission-img" alt="Admissions Open Icon" loading="lazy">
+            <p>
+                Sacred Harvesters International Christian School is now accepting applications
+                for the upcoming academic year. We welcome students from diverse backgrounds
+                to join our vibrant learning community. Our admissions process is designed
+                to be straightforward and inclusive, ensuring that every prospective student
+                has the opportunity to thrive in our nurturing environment.
+            </p>
+            <a href="form.html" class="admissions-btn" aria-label="Apply Now for Admissions">Apply Now</a>
     </main>
     <footer>
         <div>
